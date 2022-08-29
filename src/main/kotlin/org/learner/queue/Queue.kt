@@ -8,16 +8,18 @@ class Queue(var head: Node? = null, var tail: Node? = null) {
     fun enqueue(data: Int) {
         if (isEmpty()) {
             head = Node(data = data)
+            tail = head
         } else {
             val temp = Node(data = data)
-            tail?.previous = temp
+            temp.previous = temp
+            tail?.next = temp
             tail = temp
         }
     }
 
     fun dequeue(): Int? {
         val data = head?.data
-        head = head?.previous
+        head = head?.next
         return data
     }
 }
