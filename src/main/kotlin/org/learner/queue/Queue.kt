@@ -1,16 +1,16 @@
 package org.learner.queue
 
-class Queue(var head: Node? = null, var tail: Node? = null) {
+class Queue(var head: QueueNode? = null, var tail: QueueNode? = null) {
     fun isEmpty(): Boolean {
         return head == null || tail == null
     }
 
     fun enqueue(data: Int) {
         if (isEmpty()) {
-            head = Node(data = data)
+            head = QueueNode(data = data)
             tail = head
         } else {
-            val temp = Node(data = data)
+            val temp = QueueNode(data = data)
             temp.previous = temp
             tail?.next = temp
             tail = temp
