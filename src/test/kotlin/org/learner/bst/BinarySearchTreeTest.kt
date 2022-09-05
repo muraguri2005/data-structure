@@ -4,13 +4,18 @@ import org.junit.jupiter.api.Test
 
 class BinarySearchTreeTest {
     @Test
-    fun testQueue() {
+    fun testBinarySearchTree() {
         val binarySearchTree = BinarySearchTree()
-        binarySearchTree.insert(10)
-        assert(binarySearchTree.height(binarySearchTree.root) == 1)
-        binarySearchTree.insert(20)
-        assert(binarySearchTree.height(binarySearchTree.root) == 2)
-        binarySearchTree.insert(30)
+        binarySearchTree.insert(3)
+        binarySearchTree.insert(2)
+        binarySearchTree.insert(1)
+        binarySearchTree.insert(5)
+        binarySearchTree.insert(4)
+        binarySearchTree.insert(6)
+        binarySearchTree.insert(7)
         assert(binarySearchTree.height(binarySearchTree.root) == 3)
+        println(binarySearchTree.preOrder(binarySearchTree.root))
+        println(binarySearchTree.inOrder(binarySearchTree.root))
+        println(binarySearchTree.postOrder(binarySearchTree.root))
     }
 }
