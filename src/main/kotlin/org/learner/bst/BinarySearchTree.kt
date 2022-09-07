@@ -33,17 +33,16 @@ class BinarySearchTree(var root: BstNode? = null) {
     }
 
     fun checkBST(root: BstNode?): Boolean {
-        return check(root, HashMap())
+        return checkBST(root?.left, Int.MIN_VALUE, Int.MAX_VALUE)
     }
 
-    private fun check(root: BstNode?, map: MutableMap<Int?, Int?>): Boolean {
+    private fun checkBST(root: BstNode?, minimum: Int, maximum: Int): Boolean {
         return if (root == null) {
             true
-        } else if (map.containsKey(root.data)) {
+        } else if (root.data!! < minimum || root.data!! > maximum) {
             false
         } else {
-            map[root.data] = 1
-            check(root.right, map) && check(root.left, map)
+            checkBST(root.left, minimum, root.data!! - 1) && checkBST(root.right, root.data!! + 1, maximum)
         }
     }
 
