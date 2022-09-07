@@ -17,5 +17,6 @@ class BinarySearchTreeTest {
         println(binarySearchTree.preOrder(binarySearchTree.root))
         println(binarySearchTree.inOrder(binarySearchTree.root))
         println(binarySearchTree.postOrder(binarySearchTree.root))
+        println(binarySearchTree.checkBST(binarySearchTree.root))
     }
 }
